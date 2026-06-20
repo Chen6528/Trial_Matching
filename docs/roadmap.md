@@ -6,9 +6,10 @@ analysis, v1-vs-v2). Status is updated as phases land.
 
 **Status legend:** ✅ done · 🟡 partial / in progress · ⬜ planned
 
-**Snapshot:** Backend matching + ingestion pipeline and the eval harness are code-complete
-and unit-/structurally-tested. They need credentials (Anthropic + OpenAI + Supabase) and the
-schema applied to run end-to-end. The frontend is the remaining piece for v1.
+**Snapshot:** Backend matching + ingestion + the eval harness are code-complete and tested.
+The Next.js frontend is now built and verified end-to-end against the live local backend
+(lint/build/type-check green; a sample match returns ranked trials). Cloud deployment
+(Railway + Vercel + Supabase prod) is the remaining piece for v1 — see [`deploy.md`](deploy.md).
 
 ---
 
@@ -42,15 +43,21 @@ schema applied to run end-to-end. The frontend is the remaining piece for v1.
 | **Eval harness** — 22-case hand-labeled gold set (negation / threshold / missing-data) + accuracy/confusion/per-tag report, `--model` flag for the Sonnet-vs-Opus gate | `eval/gold_set.jsonl`, `eval/patients.json`, `eval/run_eval.py` |
 
 **Done when:** `/api/match` returns ranked trials with verdicts and `run_eval.py` reports accuracy.
-**Status:** code-complete; gold set structurally validated. Running it for real numbers needs
-`ANTHROPIC_API_KEY` (`python eval/run_eval.py`) — this is the gate for confirming Sonnet vs
-escalating Prompt 2 to Opus.
+**Status:** code-complete and **run**: Sonnet 4.6 scores 22/22 (100%) on the gold set, and
+holds 100% at `reasoning_effort=low` — so Prompt 2 stays on Sonnet at low effort (cheapest),
+no Opus escalation needed.
 
-## Phase 3 — Week 3: Frontend + deploy ⬜
-- Next.js (App Router + TS + Tailwind): intake form (`app/page.tsx`) + results page (`app/results/page.tsx`)
-- Components: `IntakeForm`, `TrialCard`, `CriterionRow`, `ConfidenceBadge`, `EligibilityBadge`
-- Wire to backend (`lib/api.ts`, `lib/types.ts`); CORS; loading/error states
-- Deploy: Railway (Dockerfile) + Vercel + Supabase prod
+## Phase 3 — Week 3: Frontend + deploy 🟡
+**Frontend ✅** — built and verified end-to-end against the local backend.
+- Next.js 16 (App Router + TS + Tailwind v4), **single-page** flow in `app/page.tsx`
+  (form → loading → results / error) — chosen over a separate results route so the rich
+  POST body isn't carried across navigations.
+- Components: `IntakeForm`, `TagInput`, `KeyValueInput`, `ResultsList`, `TrialCard`,
+  `CriterionRow`, `EligibilityBadge`, `ConfidenceBadge`, `LoadingState`, `DisclaimerBanner`.
+- `lib/types.ts` (API contract), `lib/schema.ts` (zod form + transform), `lib/api.ts`
+  (direct browser→backend fetch, 120s timeout), `lib/format.ts`. CORS + loading/empty/error states done.
+
+**Deploy ⬜** — Railway (Dockerfile) + Vercel + Supabase prod. Runbook: [`deploy.md`](deploy.md).
 
 **Done when:** a public URL runs the full flow end-to-end.
 
@@ -65,7 +72,13 @@ escalating Prompt 2 to Opus.
 ## Verified so far
 - All backend Python byte-compiles (Python 3.13).
 - **7/7 unit tests pass** — eligibility aggregation, result ranking, CT.gov age parsing (`tests/test_scoring.py`).
-- LLM / embedding / Supabase paths are code-complete but **unrun** (need credentials).
+- **Frontend:** `npm run lint` + `npm run build` (type-check) green.
+- **Live end-to-end (local):** `POST /api/match` with the example NSCLC profile returns 15
+  ranked trials with per-criterion verdicts + confidence, and CORS allows the frontend
+  origin. The LLM / embedding / Supabase paths are now exercised, not just code-complete.
+- **Eval ran (gold set):** `eval/run_eval.py` scores Sonnet 4.6 **22/22 (100%)** across
+  negation / threshold / missing-data, and **holds 100% at `reasoning_effort=low`** — the
+  cheap setting costs no accuracy on the hard cases.
 
 ## Key decisions (the "why")
 - **Structured prefilter → vector rerank → LLM**, not embedding-only shortlisting — higher precision, lower cost.

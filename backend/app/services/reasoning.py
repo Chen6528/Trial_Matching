@@ -31,6 +31,10 @@ async def evaluate_trial(patient_text: str, criteria: list[Criterion]) -> list[C
         # messages.parse() doesn't do here.
         max_tokens=min(20000, 8192 + len(criteria) * 256),
         thinking={"type": "adaptive"},
+        # Cap thinking spend via the effort knob (settings.reasoning_effort). On
+        # Sonnet 4.6 this — not budget_tokens (deprecated) — is the supported lever.
+        # Default "low"; raise toward "high" if eval accuracy needs it.
+        output_config={"effort": get_settings().reasoning_effort},
         system=[{"type": "text", "text": SYSTEM, "cache_control": {"type": "ephemeral"}}],
         messages=[{"role": "user", "content": build_user_message(patient_text, criteria)}],
         output_format=CriterionEvaluations,

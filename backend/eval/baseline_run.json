@@ -1,0 +1,200 @@
+[
+  {
+    "patient_id": "p1",
+    "tag": "domain_knowledge",
+    "text": "Prior treatment with an EGFR tyrosine kinase inhibitor",
+    "expected": "met",
+    "predicted": "met",
+    "reason": "Patient received osimertinib, which is an EGFR tyrosine kinase inhibitor, satisfying this exclusion criterion.",
+    "correct": true
+  },
+  {
+    "patient_id": "p1",
+    "tag": "threshold",
+    "text": "Adequate renal function defined as eGFR >= 60 mL/min",
+    "expected": "met",
+    "predicted": "met",
+    "reason": "Patient's eGFR is 72 mL/min, which meets the threshold of >= 60 mL/min.",
+    "correct": true
+  },
+  {
+    "patient_id": "p1",
+    "tag": "threshold",
+    "text": "ECOG performance status of 0 or 1",
+    "expected": "met",
+    "predicted": "met",
+    "reason": "Patient has an ECOG performance status of 1, which falls within the required range of 0 or 1.",
+    "correct": true
+  },
+  {
+    "patient_id": "p1",
+    "tag": "negation",
+    "text": "No prior systemic anticancer therapy",
+    "expected": "not_met",
+    "predicted": "not_met",
+    "reason": "Patient has received prior systemic anticancer therapy including osimertinib and platinum-based chemotherapy, so this inclusion criterion is not met.",
+    "correct": true
+  },
+  {
+    "patient_id": "p1",
+    "tag": "biomarker",
+    "text": "Documented EGFR activating mutation (exon 19 deletion or L858R)",
+    "expected": "met",
+    "predicted": "met",
+    "reason": "Patient has a documented EGFR exon 19 deletion, which is one of the specified activating mutations.",
+    "correct": true
+  },
+  {
+    "patient_id": "p1",
+    "tag": "threshold",
+    "text": "Age between 18 and 75 years",
+    "expected": "met",
+    "predicted": "met",
+    "reason": "Patient is 62 years old, which falls within the required age range of 18 to 75 years.",
+    "correct": true
+  },
+  {
+    "patient_id": "p2",
+    "tag": "negation",
+    "text": "No prior systemic anticancer therapy",
+    "expected": "met",
+    "predicted": "met",
+    "reason": "Patient profile states 'No prior treatments reported,' satisfying the requirement for no prior systemic anticancer therapy.",
+    "correct": true
+  },
+  {
+    "patient_id": "p2",
+    "tag": "threshold",
+    "text": "Adequate renal function defined as eGFR >= 60 mL/min",
+    "expected": "not_met",
+    "predicted": "not_met",
+    "reason": "Patient's eGFR is 48 mL/min, which is below the required threshold of >= 60 mL/min.",
+    "correct": true
+  },
+  {
+    "patient_id": "p2",
+    "tag": "threshold",
+    "text": "ECOG performance status of 0 or 1",
+    "expected": "not_met",
+    "predicted": "not_met",
+    "reason": "Patient has an ECOG performance status of 2, which does not meet the requirement of 0 or 1.",
+    "correct": true
+  },
+  {
+    "patient_id": "p2",
+    "tag": "missing_data",
+    "text": "Confirmed EGFR exon 19 deletion or L858R mutation",
+    "expected": "unknown",
+    "predicted": "unknown",
+    "reason": "The patient profile does not mention EGFR mutation status; it is not possible to determine whether an exon 19 deletion or L858R mutation is present.",
+    "correct": true
+  },
+  {
+    "patient_id": "p2",
+    "tag": "missing_data",
+    "text": "Active brain metastases",
+    "expected": "unknown",
+    "predicted": "unknown",
+    "reason": "The patient profile does not mention brain metastases or CNS involvement, so the presence or absence of active brain metastases cannot be determined.",
+    "correct": true
+  },
+  {
+    "patient_id": "p3",
+    "tag": "biomarker",
+    "text": "HER2-positive disease confirmed by IHC or ISH",
+    "expected": "met",
+    "predicted": "met",
+    "reason": "Patient is documented as 'HER2 positive', confirming HER2-positive disease.",
+    "correct": true
+  },
+  {
+    "patient_id": "p3",
+    "tag": "condition",
+    "text": "Known brain metastases",
+    "expected": "met",
+    "predicted": "met",
+    "reason": "Patient has 'brain metastases' listed as a comorbidity, confirming known brain metastases.",
+    "correct": true
+  },
+  {
+    "patient_id": "p3",
+    "tag": "prior_treatment",
+    "text": "Prior treatment with trastuzumab",
+    "expected": "met",
+    "predicted": "met",
+    "reason": "Patient received 'trastuzumab' as a prior treatment.",
+    "correct": true
+  },
+  {
+    "patient_id": "p3",
+    "tag": "threshold",
+    "text": "Absolute neutrophil count (ANC) >= 1.5 x10^9/L",
+    "expected": "met",
+    "predicted": "met",
+    "reason": "Patient's ANC is '1.8 x10^9/L', which is >= 1.5 x10^9/L.",
+    "correct": true
+  },
+  {
+    "patient_id": "p3",
+    "tag": "threshold",
+    "text": "Platelet count >= 100 x10^9/L",
+    "expected": "met",
+    "predicted": "met",
+    "reason": "Patient's platelet count is '180 x10^9/L', which is >= 100 x10^9/L.",
+    "correct": true
+  },
+  {
+    "patient_id": "p3",
+    "tag": "threshold",
+    "text": "ECOG performance status <= 2",
+    "expected": "met",
+    "predicted": "met",
+    "reason": "Patient's ECOG performance status is '0', which is <= 2.",
+    "correct": true
+  },
+  {
+    "patient_id": "p4",
+    "tag": "threshold",
+    "text": "Age between 18 and 75 years",
+    "expected": "not_met",
+    "predicted": "not_met",
+    "reason": "Patient is 80 years old, which exceeds the upper age limit of 75 years specified by the criterion.",
+    "correct": true
+  },
+  {
+    "patient_id": "p4",
+    "tag": "missing_data",
+    "text": "ECOG performance status of 0 or 1",
+    "expected": "unknown",
+    "predicted": "unknown",
+    "reason": "The patient profile does not include any information about ECOG performance status.",
+    "correct": true
+  },
+  {
+    "patient_id": "p4",
+    "tag": "negation",
+    "text": "Prior platinum-based chemotherapy required",
+    "expected": "not_met",
+    "predicted": "not_met",
+    "reason": "Patient has 'no prior treatments reported,' so the required prior platinum-based chemotherapy has not been received.",
+    "correct": true
+  },
+  {
+    "patient_id": "p4",
+    "tag": "negation",
+    "text": "Prior immune checkpoint inhibitor therapy",
+    "expected": "not_met",
+    "predicted": "not_met",
+    "reason": "Patient has 'no prior treatments reported,' indicating no prior immune checkpoint inhibitor therapy has been administered.",
+    "correct": true
+  },
+  {
+    "patient_id": "p4",
+    "tag": "missing_data",
+    "text": "PD-L1 expression >= 50%",
+    "expected": "unknown",
+    "predicted": "unknown",
+    "reason": "The patient profile does not include any information about PD-L1 expression levels.",
+    "correct": true
+  }
+]

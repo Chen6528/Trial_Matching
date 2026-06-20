@@ -26,10 +26,10 @@ ingest: CT.gov v2 ──> Claude Haiku (normalize criteria) ──> OpenAI embed
 
 ## Repo
 - [`backend/`](backend/) — FastAPI service (matching, ingestion, Supabase schema). **Built.** See its [README](backend/README.md).
-- `frontend/` — Next.js intake form + results page. *(Planned — Week 3.)*
+- [`frontend/`](frontend/) — Next.js intake form + results UI. **Built.** See its [README](frontend/README.md).
 
 Stack: FastAPI · Supabase/pgvector · OpenAI `text-embedding-3-small` · Claude (Haiku ingest,
-Sonnet reasoning) · Next.js · deployed on Railway + Vercel.
+Sonnet reasoning) · Next.js · deploys to Railway + Vercel (see [`docs/deploy.md`](docs/deploy.md)).
 
 See [`docs/roadmap.md`](docs/roadmap.md) for the phased build plan (week-by-week status,
 what's built, key decisions, and v1-vs-v2).

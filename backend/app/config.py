@@ -28,6 +28,9 @@ class Settings(BaseSettings):
 
     # Tuning knobs
     shortlist_size: int = 15
+    # Prompt 2 reasoning effort (Sonnet 4.6+): low | medium | high | max.
+    # Lower effort = less thinking = cheaper/faster, with some accuracy tradeoff.
+    reasoning_effort: str = "low"
 
     @property
     def cors_origin_list(self) -> list[str]:
