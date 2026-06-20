@@ -24,7 +24,12 @@ async def evaluate_trial(patient_text: str, criteria: list[Criterion]) -> list[C
     client = get_anthropic()
     resp = await client.messages.parse(
         model=get_settings().reasoning_model,
-        max_tokens=4096,
+        # Adaptive thinking shares this budget with the visible output, so a trial with
+        # many criteria can exhaust 4096 mid-JSON and truncate. Scale headroom with the
+        # criteria count; only tokens actually generated are billed. Cap at 20000: the
+        # SDK forces streaming above ~21333 (3600*max_tokens/128000 > 600s), which
+        # messages.parse() doesn't do here.
+        max_tokens=min(20000, 8192 + len(criteria) * 256),
         thinking={"type": "adaptive"},
         system=[{"type": "text", "text": SYSTEM, "cache_control": {"type": "ephemeral"}}],
         messages=[{"role": "user", "content": build_user_message(patient_text, criteria)}],

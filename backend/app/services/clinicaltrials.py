@@ -10,10 +10,14 @@ from __future__ import annotations
 
 from typing import Any
 
-import httpx
+from curl_cffi.requests import AsyncSession
 
 BASE_URL = "https://clinicaltrials.gov/api/v2/studies"
 _RECRUITING = "RECRUITING|NOT_YET_RECRUITING"
+# clinicaltrials.gov is fronted by Akamai Bot Manager, which 403s vanilla Python
+# HTTP clients on TLS/HTTP-2 fingerprint (a browser User-Agent is not enough).
+# curl_cffi impersonates a real browser's handshake so the request passes.
+_IMPERSONATE = "chrome"
 _UNIT_TO_YEARS = {
     "year": 1.0,
     "month": 1 / 12,
@@ -78,7 +82,7 @@ async def fetch_studies(condition: str, max_trials: int = 200) -> list[dict[str,
     page_token: str | None = None
     page_size = min(max_trials, 1000)  # CT.gov caps pageSize at 1000
 
-    async with httpx.AsyncClient(timeout=30.0) as client:
+    async with AsyncSession() as client:
         while len(rows) < max_trials:
             params: dict[str, Any] = {
                 "query.cond": condition,
@@ -89,7 +93,9 @@ async def fetch_studies(condition: str, max_trials: int = 200) -> list[dict[str,
             if page_token:
                 params["pageToken"] = page_token
 
-            resp = await client.get(BASE_URL, params=params)
+            resp = await client.get(
+                BASE_URL, params=params, impersonate=_IMPERSONATE, timeout=30.0
+            )
             resp.raise_for_status()
             data = resp.json()
 
