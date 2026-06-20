@@ -1,0 +1,22 @@
+{"patient_id": "p1", "criterion": {"type": "exclusion", "category": "prior_treatment", "text": "Prior treatment with an EGFR tyrosine kinase inhibitor"}, "expected": "met", "tag": "domain_knowledge"}
+{"patient_id": "p1", "criterion": {"type": "inclusion", "category": "lab", "text": "Adequate renal function defined as eGFR >= 60 mL/min"}, "expected": "met", "tag": "threshold"}
+{"patient_id": "p1", "criterion": {"type": "inclusion", "category": "performance_status", "text": "ECOG performance status of 0 or 1"}, "expected": "met", "tag": "threshold"}
+{"patient_id": "p1", "criterion": {"type": "inclusion", "category": "prior_treatment", "text": "No prior systemic anticancer therapy"}, "expected": "not_met", "tag": "negation"}
+{"patient_id": "p1", "criterion": {"type": "inclusion", "category": "biomarker", "text": "Documented EGFR activating mutation (exon 19 deletion or L858R)"}, "expected": "met", "tag": "biomarker"}
+{"patient_id": "p1", "criterion": {"type": "inclusion", "category": "demographics", "text": "Age between 18 and 75 years"}, "expected": "met", "tag": "threshold"}
+{"patient_id": "p2", "criterion": {"type": "inclusion", "category": "prior_treatment", "text": "No prior systemic anticancer therapy"}, "expected": "met", "tag": "negation"}
+{"patient_id": "p2", "criterion": {"type": "inclusion", "category": "lab", "text": "Adequate renal function defined as eGFR >= 60 mL/min"}, "expected": "not_met", "tag": "threshold"}
+{"patient_id": "p2", "criterion": {"type": "inclusion", "category": "performance_status", "text": "ECOG performance status of 0 or 1"}, "expected": "not_met", "tag": "threshold"}
+{"patient_id": "p2", "criterion": {"type": "inclusion", "category": "biomarker", "text": "Confirmed EGFR exon 19 deletion or L858R mutation"}, "expected": "unknown", "tag": "missing_data"}
+{"patient_id": "p2", "criterion": {"type": "exclusion", "category": "comorbidity", "text": "Active brain metastases"}, "expected": "unknown", "tag": "missing_data"}
+{"patient_id": "p3", "criterion": {"type": "inclusion", "category": "biomarker", "text": "HER2-positive disease confirmed by IHC or ISH"}, "expected": "met", "tag": "biomarker"}
+{"patient_id": "p3", "criterion": {"type": "exclusion", "category": "comorbidity", "text": "Known brain metastases"}, "expected": "met", "tag": "condition"}
+{"patient_id": "p3", "criterion": {"type": "exclusion", "category": "prior_treatment", "text": "Prior treatment with trastuzumab"}, "expected": "met", "tag": "prior_treatment"}
+{"patient_id": "p3", "criterion": {"type": "inclusion", "category": "lab", "text": "Absolute neutrophil count (ANC) >= 1.5 x10^9/L"}, "expected": "met", "tag": "threshold"}
+{"patient_id": "p3", "criterion": {"type": "inclusion", "category": "lab", "text": "Platelet count >= 100 x10^9/L"}, "expected": "met", "tag": "threshold"}
+{"patient_id": "p3", "criterion": {"type": "inclusion", "category": "performance_status", "text": "ECOG performance status <= 2"}, "expected": "met", "tag": "threshold"}
+{"patient_id": "p4", "criterion": {"type": "inclusion", "category": "demographics", "text": "Age between 18 and 75 years"}, "expected": "not_met", "tag": "threshold"}
+{"patient_id": "p4", "criterion": {"type": "inclusion", "category": "performance_status", "text": "ECOG performance status of 0 or 1"}, "expected": "unknown", "tag": "missing_data"}
+{"patient_id": "p4", "criterion": {"type": "inclusion", "category": "prior_treatment", "text": "Prior platinum-based chemotherapy required"}, "expected": "not_met", "tag": "negation"}
+{"patient_id": "p4", "criterion": {"type": "exclusion", "category": "prior_treatment", "text": "Prior immune checkpoint inhibitor therapy"}, "expected": "not_met", "tag": "negation"}
+{"patient_id": "p4", "criterion": {"type": "inclusion", "category": "biomarker", "text": "PD-L1 expression >= 50%"}, "expected": "unknown", "tag": "missing_data"}

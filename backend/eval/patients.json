@@ -1,0 +1,22 @@
+{
+  "p1": {
+    "age": 62, "sex": "MALE", "condition": "non-small cell lung cancer", "stage": "IV",
+    "biomarkers": ["EGFR exon 19 deletion"],
+    "prior_treatments": ["osimertinib", "platinum-based chemotherapy"],
+    "ecog_status": 1, "lab_values": {"eGFR": "72 mL/min"}
+  },
+  "p2": {
+    "age": 70, "sex": "FEMALE", "condition": "non-small cell lung cancer", "stage": "IIIB",
+    "prior_treatments": [], "ecog_status": 2, "lab_values": {"eGFR": "48 mL/min"}
+  },
+  "p3": {
+    "age": 45, "sex": "FEMALE", "condition": "HER2-positive breast cancer", "stage": "IV",
+    "biomarkers": ["HER2 positive", "ER positive"],
+    "prior_treatments": ["trastuzumab", "doxorubicin"], "ecog_status": 0,
+    "comorbidities": ["brain metastases"],
+    "lab_values": {"ANC": "1.8 x10^9/L", "platelets": "180 x10^9/L"}
+  },
+  "p4": {
+    "age": 80, "sex": "MALE", "condition": "non-small cell lung cancer", "stage": "IV"
+  }
+}
