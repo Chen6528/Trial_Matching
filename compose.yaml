@@ -1,0 +1,30 @@
+# One-command local run: `docker compose up --build`
+#   backend  -> http://localhost:8000  (Swagger at /docs)
+#   frontend -> http://localhost:3000
+# See the repo README "Run locally". Live matching still needs Supabase creds in
+# backend/.env (cp backend/.env.example backend/.env) + an ingested condition.
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    # API keys + Supabase creds. Optional so `up` doesn't hard-fail before you add it.
+    env_file:
+      - path: ./backend/.env
+        required: false
+    # The browser app is served from :3000 and calls this API directly — allow that
+    # origin. Set here (overrides .env) so CORS works regardless of .env contents.
+    environment:
+      CORS_ORIGINS: http://localhost:3000
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        # Browser-reachable backend URL, inlined at build time (NEXT_PUBLIC_*). Must be
+        # localhost (the user's browser runs the fetch), NOT the "backend" service name.
+        NEXT_PUBLIC_API_URL: http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend

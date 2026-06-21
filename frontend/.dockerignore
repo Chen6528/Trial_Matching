@@ -1,0 +1,10 @@
+node_modules
+.next
+.git
+.gitignore
+npm-debug.log*
+Dockerfile
+.dockerignore
+README.md
+# Don't bake local env into the image — the compose build passes NEXT_PUBLIC_API_URL as an arg.
+.env*

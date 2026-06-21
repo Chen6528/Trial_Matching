@@ -1,4 +1,9 @@
-# Deploy runbook (v1)
+# Deploy runbook (optional appendix)
+
+> **This is a personal project and is _not_ currently deployed.** Hosting is out of scope — see
+> [`roadmap.md`](roadmap.md). This runbook is kept intact as a reference for if you ever want to
+> stand it up on a public URL. For day-to-day use, prefer the one-command local run
+> (`docker compose up`, see the repo [README](../README.md)).
 
 Three services: **Supabase** (Postgres + pgvector), **Railway** (FastAPI backend, via the
 `backend/Dockerfile`), **Vercel** (Next.js frontend). Do them in this order — the frontend

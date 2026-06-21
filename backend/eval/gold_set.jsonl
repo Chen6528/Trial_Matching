@@ -20,3 +20,46 @@
 {"patient_id": "p4", "criterion": {"type": "inclusion", "category": "prior_treatment", "text": "Prior platinum-based chemotherapy required"}, "expected": "not_met", "tag": "negation"}
 {"patient_id": "p4", "criterion": {"type": "exclusion", "category": "prior_treatment", "text": "Prior immune checkpoint inhibitor therapy"}, "expected": "not_met", "tag": "negation"}
 {"patient_id": "p4", "criterion": {"type": "inclusion", "category": "biomarker", "text": "PD-L1 expression >= 50%"}, "expected": "unknown", "tag": "missing_data"}
+{"patient_id": "p5", "criterion": {"type": "inclusion", "category": "biomarker", "text": "Documented BRAF V600 activating mutation"}, "expected": "met", "tag": "biomarker"}
+{"patient_id": "p5", "criterion": {"type": "inclusion", "category": "prior_treatment", "text": "Prior treatment with a PD-1 or PD-L1 inhibitor"}, "expected": "met", "tag": "domain_knowledge"}
+{"patient_id": "p5", "criterion": {"type": "exclusion", "category": "prior_treatment", "text": "Prior BRAF inhibitor therapy"}, "expected": "not_met", "tag": "domain_knowledge"}
+{"patient_id": "p5", "criterion": {"type": "inclusion", "category": "performance_status", "text": "ECOG performance status 0 or 1"}, "expected": "met", "tag": "threshold"}
+{"patient_id": "p5", "criterion": {"type": "inclusion", "category": "other", "text": "ECOG performance status 0-1 and no prior immune checkpoint inhibitor therapy"}, "expected": "not_met", "tag": "compound"}
+{"patient_id": "p5", "criterion": {"type": "inclusion", "category": "other", "text": "At least 2 weeks since the last dose of anticancer therapy"}, "expected": "met", "tag": "temporal"}
+{"patient_id": "p5", "criterion": {"type": "inclusion", "category": "lab", "text": "Adequate renal function defined as creatinine clearance >= 50 mL/min"}, "expected": "unknown", "tag": "missing_data"}
+{"patient_id": "p6", "criterion": {"type": "inclusion", "category": "prior_treatment", "text": "No prior systemic therapy for melanoma"}, "expected": "met", "tag": "negation"}
+{"patient_id": "p6", "criterion": {"type": "inclusion", "category": "biomarker", "text": "BRAF V600 mutation-positive disease"}, "expected": "not_met", "tag": "biomarker"}
+{"patient_id": "p6", "criterion": {"type": "inclusion", "category": "demographics", "text": "Age between 18 and 65 years"}, "expected": "met", "tag": "threshold"}
+{"patient_id": "p6", "criterion": {"type": "inclusion", "category": "performance_status", "text": "ECOG performance status of 0 or 1"}, "expected": "met", "tag": "threshold"}
+{"patient_id": "p6", "criterion": {"type": "exclusion", "category": "comorbidity", "text": "Active autoimmune disease requiring systemic treatment"}, "expected": "unknown", "tag": "missing_data"}
+{"patient_id": "p6", "criterion": {"type": "inclusion", "category": "lab", "text": "Adequate hepatic function with total bilirubin <= 1.5x ULN"}, "expected": "unknown", "tag": "missing_data"}
+{"patient_id": "p6", "criterion": {"type": "inclusion", "category": "biomarker", "text": "Histologically confirmed melanoma with a BRAF V600 mutation"}, "expected": "not_met", "tag": "compound"}
+{"patient_id": "p7", "criterion": {"type": "inclusion", "category": "biomarker", "text": "ALK-positive non-small cell lung cancer"}, "expected": "met", "tag": "biomarker"}
+{"patient_id": "p7", "criterion": {"type": "exclusion", "category": "prior_treatment", "text": "Prior treatment with an ALK tyrosine kinase inhibitor"}, "expected": "met", "tag": "domain_knowledge"}
+{"patient_id": "p7", "criterion": {"type": "exclusion", "category": "comorbidity", "text": "Untreated brain metastases"}, "expected": "not_met", "tag": "condition"}
+{"patient_id": "p7", "criterion": {"type": "inclusion", "category": "lab", "text": "Absolute neutrophil count >= 1.5 x10^9/L"}, "expected": "met", "tag": "threshold"}
+{"patient_id": "p7", "criterion": {"type": "inclusion", "category": "lab", "text": "Platelet count > 100 x10^9/L"}, "expected": "met", "tag": "threshold"}
+{"patient_id": "p7", "criterion": {"type": "inclusion", "category": "lab", "text": "ANC >= 1.5 x10^9/L and platelet count >= 100 x10^9/L"}, "expected": "met", "tag": "compound"}
+{"patient_id": "p7", "criterion": {"type": "inclusion", "category": "other", "text": "Left ventricular ejection fraction >= 50%"}, "expected": "unknown", "tag": "missing_data"}
+{"patient_id": "p8", "criterion": {"type": "inclusion", "category": "biomarker", "text": "Germline BRCA1 or BRCA2 mutation"}, "expected": "met", "tag": "biomarker"}
+{"patient_id": "p8", "criterion": {"type": "exclusion", "category": "biomarker", "text": "HER2-positive disease"}, "expected": "not_met", "tag": "biomarker"}
+{"patient_id": "p8", "criterion": {"type": "inclusion", "category": "prior_treatment", "text": "Prior anthracycline or taxane chemotherapy"}, "expected": "met", "tag": "compound"}
+{"patient_id": "p8", "criterion": {"type": "inclusion", "category": "lab", "text": "Hemoglobin >= 9 g/dL"}, "expected": "met", "tag": "threshold"}
+{"patient_id": "p8", "criterion": {"type": "exclusion", "category": "prior_treatment", "text": "Prior PARP inhibitor therapy"}, "expected": "not_met", "tag": "domain_knowledge"}
+{"patient_id": "p8", "criterion": {"type": "inclusion", "category": "biomarker", "text": "Triple-negative disease: ER-negative, PR-negative, and HER2-negative"}, "expected": "met", "tag": "compound"}
+{"patient_id": "p8", "criterion": {"type": "inclusion", "category": "lab", "text": "Adequate renal function with serum creatinine <= 1.5 mg/dL"}, "expected": "unknown", "tag": "missing_data"}
+{"patient_id": "p9", "criterion": {"type": "inclusion", "category": "lab", "text": "Absolute neutrophil count >= 1.5 x10^9/L"}, "expected": "met", "tag": "threshold"}
+{"patient_id": "p9", "criterion": {"type": "inclusion", "category": "lab", "text": "Platelet count >= 100 x10^9/L"}, "expected": "not_met", "tag": "threshold"}
+{"patient_id": "p9", "criterion": {"type": "inclusion", "category": "biomarker", "text": "PD-L1 tumor proportion score >= 50%"}, "expected": "not_met", "tag": "threshold"}
+{"patient_id": "p9", "criterion": {"type": "exclusion", "category": "prior_treatment", "text": "Prior platinum-based chemotherapy"}, "expected": "met", "tag": "domain_knowledge"}
+{"patient_id": "p9", "criterion": {"type": "inclusion", "category": "biomarker", "text": "KRAS G12C mutation"}, "expected": "met", "tag": "biomarker"}
+{"patient_id": "p9", "criterion": {"type": "inclusion", "category": "lab", "text": "Total bilirubin <= 1.5 mg/dL and serum creatinine <= 1.5 mg/dL"}, "expected": "met", "tag": "compound"}
+{"patient_id": "p9", "criterion": {"type": "inclusion", "category": "biomarker", "text": "PD-L1 tumor proportion score >= 1%"}, "expected": "met", "tag": "threshold"}
+{"patient_id": "p9", "criterion": {"type": "exclusion", "category": "prior_treatment", "text": "Cytotoxic chemotherapy within 21 days prior to first dose"}, "expected": "not_met", "tag": "temporal"}
+{"patient_id": "p10", "criterion": {"type": "inclusion", "category": "demographics", "text": "Age >= 18 years"}, "expected": "met", "tag": "threshold"}
+{"patient_id": "p10", "criterion": {"type": "inclusion", "category": "demographics", "text": "Age <= 70 years"}, "expected": "not_met", "tag": "threshold"}
+{"patient_id": "p10", "criterion": {"type": "inclusion", "category": "prior_treatment", "text": "No prior systemic chemotherapy"}, "expected": "met", "tag": "negation"}
+{"patient_id": "p10", "criterion": {"type": "inclusion", "category": "performance_status", "text": "ECOG performance status of 0 or 1"}, "expected": "unknown", "tag": "missing_data"}
+{"patient_id": "p10", "criterion": {"type": "inclusion", "category": "biomarker", "text": "EGFR mutation-positive disease"}, "expected": "unknown", "tag": "missing_data"}
+{"patient_id": "p10", "criterion": {"type": "exclusion", "category": "comorbidity", "text": "Active brain metastases"}, "expected": "unknown", "tag": "missing_data"}
+{"patient_id": "p10", "criterion": {"type": "inclusion", "category": "lab", "text": "Adequate renal function defined as eGFR >= 60 mL/min"}, "expected": "unknown", "tag": "missing_data"}

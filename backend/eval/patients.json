@@ -18,5 +18,43 @@
   },
   "p4": {
     "age": 80, "sex": "MALE", "condition": "non-small cell lung cancer", "stage": "IV"
+  },
+  "p5": {
+    "age": 54, "sex": "MALE", "condition": "metastatic melanoma", "stage": "IV",
+    "biomarkers": ["BRAF V600E"],
+    "prior_treatments": ["pembrolizumab", "ipilimumab"],
+    "ecog_status": 1, "lab_values": {"LDH": "320 U/L", "platelets": "210 x10^9/L"},
+    "additional_notes": "Most recent immunotherapy dose was 3 weeks ago."
+  },
+  "p6": {
+    "age": 38, "sex": "FEMALE", "condition": "melanoma", "stage": "III",
+    "biomarkers": ["BRAF wild-type"],
+    "prior_treatments": [], "ecog_status": 0
+  },
+  "p7": {
+    "age": 66, "sex": "FEMALE", "condition": "non-small cell lung cancer", "stage": "IV",
+    "biomarkers": ["ALK rearrangement"],
+    "prior_treatments": ["alectinib"], "ecog_status": 1,
+    "comorbidities": ["treated brain metastases"],
+    "lab_values": {"ANC": "2.4 x10^9/L", "platelets": "150 x10^9/L", "AST": "30 U/L"}
+  },
+  "p8": {
+    "age": 49, "sex": "FEMALE", "condition": "triple-negative breast cancer", "stage": "IV",
+    "biomarkers": ["BRCA1 mutation", "ER negative", "PR negative", "HER2 negative"],
+    "prior_treatments": ["doxorubicin", "paclitaxel"], "ecog_status": 1,
+    "lab_values": {"hemoglobin": "11.5 g/dL", "platelets": "240 x10^9/L"}
+  },
+  "p9": {
+    "age": 60, "sex": "MALE", "condition": "non-small cell lung cancer", "stage": "IIIA",
+    "biomarkers": ["KRAS G12C", "PD-L1 30%"],
+    "prior_treatments": ["carboplatin", "pemetrexed"], "ecog_status": 1,
+    "lab_values": {
+      "ANC": "1800 /µL", "platelets": "95 x10^9/L",
+      "total bilirubin": "1.0 mg/dL", "creatinine": "1.1 mg/dL"
+    },
+    "additional_notes": "Completed first-line carboplatin and pemetrexed 6 months ago."
+  },
+  "p10": {
+    "age": 72, "sex": "FEMALE", "condition": "non-small cell lung cancer"
   }
 }

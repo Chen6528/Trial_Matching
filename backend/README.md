@@ -23,8 +23,12 @@ Run `app/db/schema.sql` once in the Supabase SQL editor (creates the `trials` /
 
 ## Ingest trials
 ```bash
+# the default demo set (NSCLC, breast cancer, melanoma) in one command:
+python scripts/ingest_all.py
+
+# or one condition at a time:
 python scripts/ingest.py --condition "non-small cell lung cancer" --max 200
-python scripts/ingest.py --condition "breast cancer" --max 200
+python scripts/ingest.py --condition "melanoma" --max 200
 ```
 This fetches recruiting trials, normalizes their criteria, embeds them, and upserts to Supabase.
 
